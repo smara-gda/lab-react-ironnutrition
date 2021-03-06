@@ -42,9 +42,9 @@ import React, { Component } from 'react';
 
 class MealBox extends Component {
 	render() {
-		const { image, name, calories, quantity, key } = this.props;
+		const { image, name, calories, quantity } = this.props;
 		return (
-			<div className='media' key={key}>
+			<div className='media' >
 				<img
 					src={image}
 					alt='item'

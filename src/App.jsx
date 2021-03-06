@@ -5,13 +5,7 @@ import meals from './meals.json';
 
 class App extends Component {
   state = {
-    meals,  
-    name: '',
-    calories: '',
-    image: '',
-    quantity: '',
-    
-    key: Math.random().toString()
+    meals, 
   };
 
   render() {
@@ -21,7 +15,7 @@ class App extends Component {
       
         {meals.map(meal => (
           <MealBox 
-          key={meal.key}
+          key={Math.random().toString()}
           name={meal.name}
           calories={meal.calories}
           image= {meal.image}
