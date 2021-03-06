@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 import './App.scss';
 import MealBox from './MealBox';
-import meals from './meals';
+import meals from './meals.json';
 
 class App extends Component {
   state = {
-    name: 'Salad',
-    calories: '145',
-    image: 'https://i.imgur.com/eTmWoAN.png',
-    quantity: '1',
-  }
+    meals,  
+    name: '',
+    calories: '',
+    image: '',
+    quantity: '',
+    
+    key: Math.random().toString()
+  };
 
   render() {
-    const {name, calories, image, quantity} = this.state
+    // const {name, calories, image, quantity} = this.state
     return (
       <div>
-        {/* <MealBox /> 
-        {meals.map(meal => {
-          <MealBox meal={meal} />
-        })} */}
-
-        <MealBox 
-        name={name}
-        calories={calories}
-        image= {image}
-        quantity= {quantity} />
+      
+        {meals.map(meal => (
+          <MealBox 
+          key={meal.key}
+          name={meal.name}
+          calories={meal.calories}
+          image= {meal.image}
+          quantity= {meal.quantity} 
+            />
+        ))}
       </div>
     );
   }
