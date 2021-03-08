@@ -15,8 +15,8 @@ class AddNewMeal extends Component {
         if (addingNewMeal.calories && addingNewMeal.name && addingNewMeal.image && addingNewMeal.quantity) {
           this.props.onCreateNewMeal(addingNewMeal);
           console.log(addingNewMeal)
-          // this.setState({ name: '', calories: '', image: '' , quantity: ''});
-        }
+        } 
+        return alert('Please fill in the form')
       };    
     handleNewMeal = (event) => {
         const value = event.target.value;
