@@ -12,11 +12,13 @@ class AddNewMeal extends Component {
         event.preventDefault();
         const addingNewMeal = this.state;
        
-        if (addingNewMeal.calories && addingNewMeal.name && addingNewMeal.image && addingNewMeal.quantity) {
+        if (addingNewMeal.name && addingNewMeal.image && addingNewMeal.quantity) {
           this.props.onCreateNewMeal(addingNewMeal);
           console.log(addingNewMeal)
-        } 
-        return alert('Please fill in the form')
+        } else{
+
+          return alert('Please fill in the form')
+        }
       };    
     handleNewMeal = (event) => {
         const value = event.target.value;
