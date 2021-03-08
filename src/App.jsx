@@ -9,6 +9,13 @@ class App extends Component {
     meals, 
     showForm: false
   };
+  toggleForm = () => {
+      this.setState({
+        showForm: !this.state.showForm
+      });
+    };
+
+
   createNewMeal = (meal) => {
     this.setState({
       meals: [meal, ...this.state.meals]
@@ -16,11 +23,6 @@ class App extends Component {
     this.toggleForm();
   };
 
-toggleForm = () => {
-    this.setState({
-      showForm: !this.state.showForm
-    });
-  };
  
 
   render() {
@@ -33,14 +35,14 @@ toggleForm = () => {
           )}
 
 
-        {meals.map(meal => (
+        {this.state.meals.map(meal => (
           <MealBox 
           key={Math.random().toString()}
           name={meal.name}
           calories={meal.calories}
           image= {meal.image}
           quantity= {meal.quantity} 
-            />
+          />
         ))}
       </div>
     );

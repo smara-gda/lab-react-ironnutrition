@@ -5,64 +5,71 @@ class AddNewMeal extends Component {
     name: '',
     calories: '',
     image: '',
+    quantity: ''
     
   };
     handleFormSubmission = (event) => {
         event.preventDefault();
         const addingNewMeal = this.state;
        
-        if (addingNewMeal.calories && addingNewMeal.name && addingNewMeal.image) {
+        if (addingNewMeal.calories && addingNewMeal.name && addingNewMeal.image && addingNewMeal.quantity) {
           this.props.onCreateNewMeal(addingNewMeal);
-          this.setState({ name: '', calories: '', image: '' });
+          console.log(addingNewMeal)
+          // this.setState({ name: '', calories: '', image: '' , quantity: ''});
         }
       };    
-
-
-      handleNewMeal = (event) => {
+    handleNewMeal = (event) => {
         const value = event.target.value;
         const name = event.target.name;
         this.setState({
           [name]: value
         });
       };
-	render() {
-		return (
+	  render() {
+		  return (
 			<div className='media container' >
-				<form onSubmit={this.handleFormSubmission}>
-                <div> 
+				  <form onSubmit={this.handleFormSubmission}>
+              <div> 
                 <label htmlFor="foodName">Food name</label>
-                 <input
+                <input
                    type="text"
                    id="foodName"
                    name="name"
                    onChange={this.handleNewMeal}
                    value={this.state.name}
                    placeholder="Food name"
-                 />
-                 <label htmlFor="Kcal">Number of Kcal</label>
-                 <input
+                />
+                <label htmlFor="Kcal">Number of Kcal</label>
+                <input
                    type="text"
                    id="Kcal"
                    name="calories"
                    onChange={this.handleNewMeal}
                    value={this.state.calories}
                    placeholder="Number of Kcal"
-                 />
-                 <label htmlFor="imgURL">URL image</label>
-                 <input
+                />
+                <label htmlFor="imgURL">URL image</label>
+                <input
                    type="url"
                    id="imgURL"
                    name="image"
                    onChange={this.handleNewMeal}
                    value={this.state.image}
                    placeholder="URL image"
-                 />
-        <button>Add new meal</button> 
-        {/* NEW MEAL IS NOT DISPLAYED AFTER CLICKING THE BUTTON NOT SURE WHY */}
-     </div>
-   </form>
- </div>
-		);
+                />
+                <label htmlFor="quantity">Quantity</label>
+                <input
+                   type="number"
+                   id="quantity"
+                   name="quantity"
+                   onChange={this.handleNewMeal}
+                   value={this.state.quantity}
+                />
+                <button>Add new meal</button> 
+             </div>
+          </form>
+      </div>
+		 );
 	}
 }
 
